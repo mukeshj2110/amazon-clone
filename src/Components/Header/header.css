@@ -4,7 +4,7 @@
     width: 100%;
     background-color: #131921;
     top: 0;
-
+    z-index: 100;
     position: sticky;
 }
 
@@ -47,6 +47,7 @@
    flex-direction: column;
    margin-left: 10px;
    margin-right: 10px;
+   color: white;
 }
 
 .header_option1{
@@ -60,6 +61,7 @@
 .header_optionbasket{
     display: flex;
     align-items: center;
+    color: white;
 }
 .header_basketcount{
     margin-left: 10px;
