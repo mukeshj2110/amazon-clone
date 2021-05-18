@@ -7,7 +7,7 @@ import { useStateValue } from '../../Context/StateProvider'
 function Checkout() {
 
     // eslint-disable-next-line
-    const [{basket} , dispatch] = useStateValue();
+    const [{basket ,user} , dispatch] = useStateValue();
     return (
         <div className="checkout">
             <div className="checkout_left">
@@ -16,6 +16,7 @@ function Checkout() {
             src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492688_.jpg" alt=""/>
             
             <div>
+                <h2 className="checkout_user">Hello {user? `${user.email}`: "Guest"}</h2>
                 <h2 className="checkout_title">Your Shopping Basket</h2>
                 {basket.map((item=>
                 <CheckoutProduct

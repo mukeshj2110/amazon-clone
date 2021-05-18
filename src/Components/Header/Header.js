@@ -4,11 +4,16 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import './header.css'
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../../Context/StateProvider';
+import { auth } from '../../firebase/firebaseConfig';
 
 function Header() {
     
     // eslint-disable-next-line
-    const [{basket} , dispatch] = useStateValue()
+    const [{basket ,user} , dispatch] = useStateValue()
+
+    const handleAuth = ()=>{
+        auth.signOut();
+    }
     
     return (
         <div className="header">
@@ -24,10 +29,10 @@ function Header() {
             <div className="header_nav">
 
             {/* {signup} */}
-            <Link to="/login">
-            <div className="header_options">
-                <span className="header_option1">Hello Guest</span>
-                <span className="header_option2">Sign Up</span>
+            <Link to={!user && '/login'}>
+            <div onClick={handleAuth} className="header_options">
+                <span className="header_option1">{user? `Hello ${user.email}`: "Hello Guest"}</span>
+                <span className="header_option2">{user? 'Sign Out': "Sign In"}</span>
             </div>
             </Link>
             {/* {orders} */}

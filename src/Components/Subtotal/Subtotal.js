@@ -1,10 +1,13 @@
 import React from 'react'
 import CurrencyFormat from 'react-currency-format';
+import { useHistory } from 'react-router';
 import { getBasketTotal } from '../../Context/reducer';
 import { useStateValue } from '../../Context/StateProvider';
 import './subtotal.css'
 
 function Subtotal() {
+
+    const history = useHistory();
 
     // eslint-disable-next-line
     const [{basket} , dispatch] = useStateValue()
@@ -29,7 +32,7 @@ function Subtotal() {
                 decimalScale={2}
                 displayType={"text"}
             />
-            <button className="subtotal_btn">Proceed to Checkout</button>
+            <button onClick={e=> history.push("/payment")} className="subtotal_btn">Proceed to Checkout</button>
         </div>
     )
 }

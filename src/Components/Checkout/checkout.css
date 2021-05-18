@@ -16,3 +16,8 @@
     border-bottom: 1px solid #000;
 
 }
+.checkout_user{
+    align-items: center;
+    padding-left: 10px;
+    color: darkseagreen;
+}
